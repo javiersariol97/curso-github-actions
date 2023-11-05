@@ -1,20 +1,23 @@
-name: Aprendiendo Disparadores
-run-name: Aprendiendo Disparadores corriendo
+name: Triggers
+run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on:
   push:
     branches:
-      -aprendiendo-github-actions
-   pull-request:
-      types: [opened, synchronize, reopened]
-      paths:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
       - '**.py'
-    workflow_dispatch:
-      inputs:
-        lenguaje_favorito:
-          description: 'Lenguaje favorito'
-          default: Python
-          required: true
-          type: choice
+  issues:
+    types:
+      - labeled
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
+        default: Python
+        required: true
+        type: choice
         options:
         - Python
         - JavaScript
@@ -25,9 +28,9 @@ on:
         default: Juan
         type: string
   schedule:
-    - cron:  '37 23 * * *'
-  jobs:
-    hola-mundo-manual:
+    - cron:  '15 22 * * *'
+jobs:
+  hola-mundo-manual:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
