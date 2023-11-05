@@ -5,16 +5,16 @@ on:
     branches:
       -aprendiendo-github-actions
    pull-request:
-    types: [opened, synchronize, reopened]
-    paths:
-    - '**.py'
+      types: [opened, synchronize, reopened]
+      paths:
+      - '**.py'
     workflow_dispatch:
-    inputs:
-      lenguaje_favorito:
-        description: 'Lenguaje favorito'
-        default: Python
-        required: true
-        type: choice
+      inputs:
+        lenguaje_favorito:
+          description: 'Lenguaje favorito'
+          default: Python
+          required: true
+          type: choice
         options:
         - Python
         - JavaScript
