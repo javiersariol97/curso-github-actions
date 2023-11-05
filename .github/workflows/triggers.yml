@@ -1,16 +1,14 @@
 name: Aprendiendo Disparadores
 run-name: Aprendiendo Disparadores corriendo
-  on:
-    push:
-      branches:
-        -aprendiendo-github-actions
-    pull-request:
-      types: [opened, synchronize, reopened]
-      paths:
-      - '**.py'
+on:
+  push:
+    branches:
+      -aprendiendo-github-actions
+   pull-request:
+    types: [opened, synchronize, reopened]
     paths:
-      - '**.py'
-      workflow_dispatch:
+    - '**.py'
+    workflow_dispatch:
     inputs:
       lenguaje_favorito:
         description: 'Lenguaje favorito'
@@ -50,4 +48,3 @@ run-name: Aprendiendo Disparadores corriendo
         run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
       - name: Correr script
         run: python hola_mundo.py
-    
